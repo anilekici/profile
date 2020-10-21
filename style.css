@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&family=Krona+One&display=swap');
+
+body {
+    background-color: whitesmoke;
+}
+
+p {
+    font-family: 'Exo', sans-serif;
+}
+
+h3 {
+    color: red;
+    font-family: 'Krona One', sans-serif;
+}
+
+h1, h2 {
+    color: rgb(102, 10, 47);
+    font-family: 'Krona One', sans-serif;
+}
+
+#logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.container {
+    width: 500px;   /* This sets the width */
+    margin: 0 auto; /* This automatically sets left/right margins */
+  }
+
+.card {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(202, 30, 30, 0.1);
+}
+
+.list-inline > li {
+    display: inline-block;
+    padding: 0px 20px;
+    font-size: 40px;
+}
+
+.list-inline i:hover {
+    color: red;
+}
+
+.list-inline {
+    list-style: none;
+    padding-left: 0px;
+}
+a {
+    color: whitesmoke;
+}
+
+#btn-blue {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: transparent;
+    font-family: 'Exo', sans-serif;
+    background: black;
+}
+
+#btn-blue:hover {
+    background: red;
+    color: black;
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .container {
+    width: 300px;
+  }
+}
+}
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .container {
+    width: 500px;
+  }
+}
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .container {
+    width: 700px;
+  }
