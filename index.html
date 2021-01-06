@@ -5,25 +5,81 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <meta charset="utf-8">
-    <title>My Profile</title>
+    <meta property="og:title" content="Anıl Ekici">
+    <meta property="og:description" content="Full-stack developer's portfolios.">
+    <title>Anıl Ekici - Portfolio</title>
   </head>
 
   <body>
     <div class="container">
-      <div class="card"> <h2>Anıl Ahmet Can Ekici</h2>
-        <img src="images/IMG_20200917_201656 (2).jpg" id="logo" alt="profile">
-        <h2>👶 Baby Programmer 👶</h2>
-          <p>I'm a junior programmer from Turkey. For now I just now Ruby but hey I am learning new stuff every day!
-           Hi mom!
-          </p>
-        <a href="https://www.youtube.com/watch?v=31HfP81oWDI" target="_blank" id="btn-blue">My Portfolio</a>
-      </div>
-      <div class="card"> <h3>Follow for Follow 😜</h3>
+      <div class="card"> 
+        <nav id="nav">
+          <ul class="list-inline">
+            <li><a href="#home" class="btn active">Home</a></li>
+            <li><a href="#portfolio" class="btn">Portfolio</a></li>
+            <li><a href="#contact" class="btn">Contact</a></li>
+          </ul>
+          <hr>
+        </nav>
+        <section class="sec on">
+          <img src="images/profile.jpeg" id="logo" alt="profile">
+          <h4>Anıl Ekici</h4>
+          <hr class="short">
+          <h6>Full-Stack Developer</h6>
+            <p>Product minded full-stack developer with a Technical University engineering background. I am experienced in the Ruby language. 
+              I worked with Ruby on Rails using HTML, CSS, and JavaScript.
+            </p>
+          <hr>
+        </section>
+        <section class="home">
+        <a href="http://www.giftpot.fun/" target="blank">
+          <div class="card-product">
+            <img src="images/giftpot3.JPG" />
+            <div class="card-product-infos">
+              <h6>Gift Pot</h6>
+              <p>A platform to allow friends to privately suggest a gift for someone's bday and crowdfund/friendfund for it between them.</p>
+            </div>
+          </div>
+        </a>  
+        <hr>
+        <a href="https://surfbnb-super-teej.herokuapp.com/" target="blank">
+          <div class="card-product">
+            <div class="card-product-infos">
+              <h6>SurfBnb</h6>
+              <p>An AirBnb clone app. You can browse for surfboards or rent your own.</p>
+            </div>
+            <img src="images/surfbnb.JPG" />
+          </div>
+        </a>
+        <hr>
+        <a href="https://www.undandy.com/" target="blank">
+          <div class="card-product">
+            <img src="images/undandy.jpg" />
+            <div class="card-product-infos">
+              <h6>Undandy</h6>
+              <p>An e-commerce web site powered by Shopify. A traditional way of crafting, a contemporary way of purchasing.</p>
+            </div>
+          </div>
+        </a>
+        <hr>
+        </section class="Portfolio">
         <ol class="list-inline">
-          <li><a href="https://www.facebook.com/ekicia/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="https://www.instagram.com/anlekici/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        </ol>    
+          <li><a href="https://github.com/anilekici" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/aace/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="mailto:anilekicipt@gmail.com" target="_blank"><i class="fas fa-at"></i></a></li>
+        </ol>
       </div>
-    </div>   
+    </div>
+    <script>
+      var btns = document.getElementsByClassName("btn");
+      var secs = document.getElementsByClassName("sec");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+      }
+      </script>
   </body>
 </html>
