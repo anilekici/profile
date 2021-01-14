@@ -22,13 +22,11 @@
           <hr>
         </nav>
         <section class="sec on">
-          <img src="images/profile.jpeg" id="logo" alt="profile">
+          <img id="logo" alt="profile">
           <h4>Anıl Ekici</h4>
           <hr class="short">
-          <h6>Full-Stack Developer</h6>
-            <p>Product minded full-stack developer with a Technical University engineering background. I am experienced in the Ruby language. 
-              I worked with Ruby on Rails using HTML, CSS, and JavaScript.
-            </p>
+          <h6 id="location">Full-Stack Developer - Based in </h6>
+            <p id="bio"></p>
           <hr>
         </section>
         <section class="home">
@@ -79,7 +77,21 @@
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
         });
-      }
+      };
+
+      const url = "https://api.github.com/users/anilekici";
+
+      const place = document.getElementById("location");
+      const pp = document.getElementById("logo");
+      const about = document.getElementById("bio");
+      fetch(url)
+        .then(response => response.json())
+        .then((data) => {
+          const loc = `${data.location}`
+          place.insertAdjacentHTML("beforeend", loc)
+          pp.src = data.avatar_url
+          about.textContent = data.bio
+        });
       </script>
   </body>
 </html>
