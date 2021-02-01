@@ -13,54 +13,15 @@
   <body>
     <div class="container">
       <div class="card"> 
-        <nav id="nav">
-          <ul class="list-inline">
-            <li><a href="#home" class="btn active">Home</a></li>
-            <li><a href="#portfolio" class="btn">Portfolio</a></li>
-            <li><a href="#contact" class="btn">Contact</a></li>
-          </ul>
-          <hr>
-        </nav>
-        <section class="sec on">
-          <img id="logo" alt="profile">
-          <h4>Anıl Ekici</h4>
-          <hr class="short">
+        <img id="logo" alt="profile">
+        <h4>Anıl Ekici</h4>
+        <hr class="short">
           <h6 id="location">Full-Stack Developer - Based in </h6>
             <p id="bio"></p>
-          <hr>
-        </section>
-        <section class="home">
-        <a href="http://www.giftpot.fun/" target="blank">
-          <div class="card-product">
-            <img src="images/giftpot3.JPG" />
-            <div class="card-product-infos">
-              <h6>Gift Pot</h6>
-              <p>A platform to allow friends to privately suggest a gift for someone's bday and crowdfund/friendfund for it between them.</p>
-            </div>
-          </div>
-        </a>  
         <hr>
-        <a href="https://surfbnb-super-teej.herokuapp.com/" target="blank">
-          <div class="card-product">
-            <div class="card-product-infos">
-              <h6>SurfBnb</h6>
-              <p>An AirBnb clone app. You can browse for surfboards or rent your own.</p>
-            </div>
-            <img src="images/surfbnb.JPG" />
-          </div>
-        </a>
+          <div id="repo-cards"></div>
         <hr>
-        <a href="https://www.undandy.com/" target="blank">
-          <div class="card-product">
-            <img src="images/undandy.jpg" />
-            <div class="card-product-infos">
-              <h6>Undandy</h6>
-              <p>An e-commerce web site powered by Shopify. A traditional way of crafting, a contemporary way of purchasing.</p>
-            </div>
-          </div>
-        </a>
-        <hr>
-        </section class="Portfolio">
+        <a href=""></a>
         <ol class="list-inline">
           <li><a href="https://github.com/anilekici" target="_blank"><i class="fab fa-github"></i></a></li>
           <li><a href="https://www.linkedin.com/in/aace/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
@@ -69,29 +30,39 @@
       </div>
     </div>
     <script>
-      var btns = document.getElementsByClassName("btn");
-      var secs = document.getElementsByClassName("sec");
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-        });
-      };
-
       const url = "https://api.github.com/users/anilekici";
-
+      
       const place = document.getElementById("location");
       const pp = document.getElementById("logo");
       const about = document.getElementById("bio");
       fetch(url)
-        .then(response => response.json())
-        .then((data) => {
-          const loc = `${data.location}`
-          place.insertAdjacentHTML("beforeend", loc)
-          pp.src = data.avatar_url
-          about.textContent = data.bio
+      .then(response => response.json())
+      .then((data) => {
+        let loc = `${data.location}`
+        place.insertAdjacentHTML("beforeend", loc)
+        pp.src = data.avatar_url
+        about.textContent = data.bio
+      });
+      const urlRepos = "https://api.github.com/users/anilekici/repos";
+
+      const repos = document.getElementById("repo-cards");
+
+      fetch(urlRepos)
+      .then(response => response.json())
+      .then((data) => {
+        data.forEach(repo => {
+          let name = `${repo.name}`
+          let description = `${repo.description}`
+          let repoUrl = `${repo.html_url}`
+          let repoHtml = document.createElement("div");
+
+          repoHtml.innerHTML = `<h6 id="repo-name">${name}</h6>
+          <span id="repo-description">${description}</span>
+          <a href="${repoUrl}" target="_blank">Go to Repo</a>
+          `
+          repos.appendChild(repoHtml)
         });
+      })
       </script>
   </body>
 </html>
